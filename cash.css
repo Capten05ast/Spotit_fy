@@ -1,0 +1,260 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: #085577; */
+    background-image: url(ambi_3.png);
+    background-repeat: no-repeat;
+    font-family: 'Anta';
+    min-height: 100%;
+    background-attachment: fixed;
+    contain: content;
+}
+
+.main { 
+    margin: 0;
+    padding: 0;
+    contain: content; 
+
+    /* 
+    To cover whole screen 
+    */
+
+    height: max-content;
+    width: 100vw;
+/*  background-color: rgba(0, 0, 0, 0.10);  */
+   
+
+    font-family: 'Anta';
+}
+
+nav {
+    margin-top: -1.25%;
+    top: 0;
+    font-family: 'Anta';
+    background-color: rgba(0, 0, 0, 0.60);;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    height: 60px;
+    color: white;
+    gap:2rem;
+}
+
+.brand img {
+    width: 45px;
+}
+
+
+
+.brand {
+    display:flex;
+    align-items: center;
+    gap:0.5rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+    padding-right: 50px;
+    margin-left: -12px;
+    
+}
+
+.bottom {
+    margin-top: 25px;
+    position: sticky;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.80);;
+    color:white;
+    padding: 15px;
+
+    bottom: 0;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+    transform: translateX(-1%);
+}
+
+.container {
+    min-height: 100vh;
+    color:whitesmoke;
+    font-style: italic;
+    -webkit-text-stroke-color: black;
+    display: flex;
+
+    margin: 40px auto;
+    transform: translateX(-1%);
+    /* 
+    top bottom 23 px and mx-auto for center
+    */
+
+    width: 85%;
+    background-color: rgba(0, 0, 0, 0.30);
+    border-radius: 50px;
+    padding: 20px;
+}
+
+#myProgressBar {
+    width: 80vw;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 1.5%;
+    margin-top:1%;
+}
+
+.fa-regular{
+    cursor: pointer;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    font-size: 33px;
+
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.fa-solid {
+    cursor: pointer;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    font-size: 33px;
+
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.songItemContainer {
+    margin-top:54px;
+}
+
+.songItem {
+    height: 200px;
+    display: flex;
+    width:max-content;
+
+    margin:30px 0;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.70);
+    border-radius:40px;
+
+    padding: -10px;
+}
+
+.songItem img{
+    height: 168px;
+    width:150px;
+
+    border: 2px solid white;
+    margin:28px 23px;
+    border-radius: 20px;
+}
+
+.songInfo {
+    font-size: 20px;
+    transform: translateX(-20%);
+}
+
+#songInfo2 {
+    transform: translateX(20%);
+    margin-top: 3.5%;
+    font-size: 20px;
+    width: 250px;
+    text-align: left;
+}
+
+.songInfo img {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+
+    /* 
+    so whenever a change in opacity will occur, it will take transition
+    of 1 second.
+    */
+
+    width: 200px;
+    height: 50px;
+}
+
+.songListplay {
+    display: flex;
+    flex-direction: row;
+    margin: 12px 8px;
+    gap: 3rem;
+
+    background-color: #106AFF;
+    
+    border-radius: 15px;
+    padding: 20px;
+
+    font-size: 20px;
+}
+
+.fa-music {
+    margin-top: -1%;
+    color: #05f459;
+    background-color: rgba(0, 0, 0, 0.80);
+    padding:12px;
+    border-radius: 50%;
+    text-align: left;
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.copy {
+    margin-top: -1%;
+    color: #05f459;
+    background-color: rgba(0, 0, 0, 0.80);
+    padding:12px;
+    border-radius: 23%;
+    text-align: left;
+    font-size: 28px;
+    transform: scale(1.5px);
+
+    cursor: pointer;
+} 
+
+.songName {
+    padding-bottom: -3px;
+    width:280px;
+    color:antiquewhite;
+    font-size: 23px;
+    transform: translateY(15%);
+
+}
+
+.timeStamp {
+    transform: translateY(19%);
+    padding-bottom: -3px;
+    text-align: center;
+
+}
+
+.flux {
+    transform: translateY(-4%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+
+
+
+
+/* 
+Media query :-
+It makes website responsive
+*/
+
+@media only screen and (max-width: 900px) {
+    body {
+        background-image: url();
+        background-color: #106AFF;
+    }
+}
