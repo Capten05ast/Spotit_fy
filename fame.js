@@ -6,7 +6,7 @@
 // images from the website Unplash
 
 // remove bg :
-// this is the website used for removing background.
+// this is the website used for removing bg.
 
 
 
