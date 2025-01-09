@@ -130,56 +130,142 @@ myProgressBar.addEventListener("change", () => {
 //     });
 // }
 
-Array.from (document.getElementsByClassName ("songItemPlay") ).forEach((element) => {
-    element.addEventListener ("click", (e) => {
-    // for converting id into integer value
-    console.log (e);
-    songIndex = parseInt(e.target.id);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Array.from (document.getElementsByClassName ("songItemPlay") ).forEach((element) => {
+//     element.addEventListener ("click", (e) => {
+//     // for converting id into integer value
+//     console.log (e);
+//     songIndex = parseInt(e.target.id);
  
-    audioElement.src = `${songIndex+1}.mp3`;
+//     audioElement.src = `${songIndex+1}.mp3`;
 
-    if(audioElement.paused || audioElement.currentTime <= 0) {  
+//     if(audioElement.paused || audioElement.currentTime <= 0) {  
 
-        e.target.classList.remove("fa-music");
-        e.target.classList.add("fa-circle-pause");
-        e.target.classList.add("copy");
+//         e.target.classList.remove("fa-music");
+//         e.target.classList.add("fa-circle-pause");
+//         e.target.classList.add("copy");
 
-        // back tick used
-        // audioElement.src = `${songIndex+1}.mp3`;
-        audioElement.play();
+//         // back tick used
+//         // audioElement.src = `${songIndex+1}.mp3`;
+//         audioElement.play();
 
-        masterPlay.classList.remove("fa-circle-play")
-        masterPlay.classList.add("fa-circle-pause")
-        gif.style.opacity = 1;
+//         masterPlay.classList.remove("fa-circle-play")
+//         masterPlay.classList.add("fa-circle-pause")
+//         gif.style.opacity = 1;
 
-        // display change in song name 
-        txt.innerText = songs[songIndex].songName;
+//         // display change in song name 
+//         txt.innerText = songs[songIndex].songName;
 
 
 
-        // EXTRAS 
-    }
+//         // EXTRAS 
+//     }
 
-    else {
+//     else {
 
-        e.target.classList.add("fa-music");
-        e.target.classList.remove("fa-circle-pause");
-        e.target.classList.remove("copy");
+//         e.target.classList.add("fa-music");
+//         e.target.classList.remove("fa-circle-pause");
+//         e.target.classList.remove("copy");
 
-        // back tick used
-        // audioElement.src = `${songIndex+1}.mp3`;
-        // audioElement.currentTime = 0;
-        audioElement.pause();
+//         // back tick used
+//         // audioElement.src = `${songIndex+1}.mp3`;
+//         // audioElement.currentTime = 0;
+//         audioElement.pause();
 
-        masterPlay.classList.add("fa-circle-play")
-        masterPlay.classList.remove("fa-circle-pause")
-        gif.style.opacity = 0;
+//         masterPlay.classList.add("fa-circle-play")
+//         masterPlay.classList.remove("fa-circle-pause")
+//         gif.style.opacity = 0;
 
-        // display change in song name 
-        txt.innerText = songs[songIndex].songName;
-    }
+//         // display change in song name 
+//         txt.innerText = songs[songIndex].songName;
+//     }
+//     });
+// });
+
+
+
+
+
+
+
+
+
+
+Array.from(document.getElementsByClassName("songItemPlay")).forEach((element) => {
+    element.addEventListener("click", (e) => {
+        // Get the current song index
+        songIndex = parseInt(e.target.id);
+
+        // If the clicked song is already playing, just pause it
+        if (!audioElement.paused && audioElement.src.includes(`${songIndex + 1}.mp3`)) {
+            audioElement.pause();
+            e.target.classList.add("fa-music");
+            e.target.classList.remove("fa-circle-pause");
+            e.target.classList.remove("copy");
+            masterPlay.classList.add("fa-circle-play");
+            masterPlay.classList.remove("fa-circle-pause");
+            gif.style.opacity = 0;
+        } 
+        
+        else {
+            // clicked song was not playing so play it 
+            // and Pause any other playing songs
+            Array.from(document.getElementsByClassName("songItemPlay")).forEach((btn) => {
+                btn.classList.add("fa-music");
+                btn.classList.remove("fa-circle-pause");
+                // first make everyone same and then proceed ahead
+            });
+
+            // Update the source and play the selected song
+            audioElement.src = `${songIndex + 1}.mp3`;
+            audioElement.play();
+
+            // Update the button states
+            e.target.classList.remove("fa-music");
+            e.target.classList.add("fa-circle-pause");
+            e.target.classList.add("copy");
+            masterPlay.classList.remove("fa-circle-play");
+            masterPlay.classList.add("fa-circle-pause");
+            gif.style.opacity = 1;
+
+            // Update the song name display
+            txt.innerText = songs[songIndex].songName;
+        }
     });
+
+    // VIMP
+
+    // WHATS HAPPENING HERE :-
+    // WRITE IT DOWN ON PAPER AND ANALYZE TWO CONDITIONS
+    // When You Click a Song Button:
+    // It checks if the clicked song is already playing.
+    // If it is playing, it pauses the song (if block).
+    // If it's not playing, it stops any other playing songs and starts the clicked song (else block)
 });
+
+
+
+
+
+
+
+
+
 
 // src :-
 // .src Property: The .src property specifies the location (URL) 
